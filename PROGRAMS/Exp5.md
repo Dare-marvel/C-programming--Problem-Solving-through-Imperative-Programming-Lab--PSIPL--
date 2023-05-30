@@ -1,3 +1,7 @@
+## Code:
+### Problem 1:
+### `Selection Sort`
+```c
 #include <stdio.h>
 
 void SelectionSort(int arr[], int n)
@@ -19,10 +23,36 @@ void SelectionSort(int arr[], int n)
     }
 }
 
-void bin_srch(int arr[80], int size, int num)
+int main()
+{
+    int n;
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter the values of elements in the array: ");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    SelectionSort(arr, n);
+    printf("Sorted array:\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+```
+### Problem 2:
+### `Binary Search`
+```c
+#include <stdio.h>
+
+void bin_srch(int arr[], int size, int num)
 {
     int hi = size - 1, lo = 0, i;
-    for (i = (size / 2); arr[i] != num; i = ((hi + lo) / 2))
+    for (i = size / 2; arr[i] != num; i = (hi + lo) / 2)
     {
         if (arr[i] < num)
         {
@@ -43,9 +73,32 @@ void bin_srch(int arr[80], int size, int num)
     }
     else
     {
-        printf("Element doesnt exist in the array");
+        printf("Element doesn't exist in the array");
     }
 }
+
+int main()
+{
+    int numb, n1;
+    printf("Enter the total number of elements in the array: ");
+    scanf("%d", &n1);
+    int arr[n1];
+    printf("Enter the elements of the array in ascending order:\n");
+    for (int i = 0; i < n1; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter the element to be searched: \n");
+    scanf("%d", &numb);
+    bin_srch(arr, n1, numb);
+
+    return 0;
+}
+```
+### Problem 3:
+### `Circular Rotation`
+```c
+#include <stdio.h>
 
 void circ(int arr[], int n, int m)
 {
@@ -68,39 +121,6 @@ void circ(int arr[], int n, int m)
 
 int main()
 {
-    // Problem 1
-    int n;
-    printf("Enter no of elements in the array: ");
-    scanf("%d", &n);
-    int arr[n];
-    printf("Enter the value of elements in the array: ");
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &arr[i]);
-    }
-    SelectionSort(arr, n);
-    printf("Sorted array:\n ");
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-
-    // Problem 2
-    int numb, n1;
-    printf("Enter the total number of elements of the array: ");
-    scanf("%d", &n1);
-    int arr[n1];
-    printf("Enter the elements of the array in ascending order:\n");
-    for (int i = 0; i < n1; i++)
-
-    {
-        scanf("%d", &arr[i]);
-    }
-    printf("Enter the element to be searched: \n");
-    scanf("%d", &numb);
-    bin_srch(arr, n1, numb);
-
-    // Problem 3
     int m, n2;
     printf("Enter the number of elements in the array: ");
     scanf("%d", &n2);
@@ -117,3 +137,4 @@ int main()
 
     return 0;
 }
+```
