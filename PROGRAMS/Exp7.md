@@ -1,7 +1,8 @@
+## Code:
+### Problem 1:
+### `Count Vowels and Consonants`
+```c
 #include <stdio.h>
-#include<string.h>
-#include<math.h>
-
 
 void findvowelconsonants(char str[])
 {
@@ -10,7 +11,6 @@ void findvowelconsonants(char str[])
     int consonants = 0;
     while (str[count] != '\0')
     {
-
         if (str[count] == 'a' || str[count] == 'e' || str[count] == 'i' || str[count] == 'o' || str[count] == 'u' || str[count] == 'A' || str[count] == 'E' || str[count] == 'I' || str[count] == 'O' || str[count] == 'U')
         {
             vow_count++;
@@ -25,9 +25,23 @@ void findvowelconsonants(char str[])
     printf("\nThe string has %d consonants\n ", consonants);
 }
 
+int main()
+{
+    char str[100];
+    printf("Enter the string:\n");
+    scanf(" %[^\n]s ", str);
+    findvowelconsonants(str);
+
+    return 0;
+}
+```
+### Problem 2:
+### `String Length and Word Count`
+```c
+#include <stdio.h>
+
 int string_length(char str[])
 {
-
     int len = 0;
     while (str[len] != '\0')
     {
@@ -48,6 +62,23 @@ int word_num(char str[])
     return count + 1;
 }
 
+int main()
+{
+    char str[100];
+    printf("Enter the string:\n");
+    scanf(" %[^\n]s ", str);
+    printf("\nLength of string: %d\n", string_length(str));
+    printf("\nNumber of words in given string: %d\n", word_num(str));
+
+    return 0;
+}
+```
+### Problem 3:
+### `String Operations`
+```c
+#include <stdio.h>
+#include <string.h>
+
 void cop(char str1[], char str2[])
 {
     int i;
@@ -57,6 +88,7 @@ void cop(char str1[], char str2[])
     }
     str2[i] = '\0';
 }
+
 int len(char str1[])
 {
     int length = 0;
@@ -66,6 +98,7 @@ int len(char str1[])
     }
     return length;
 }
+
 int com(char str1[], char str2[])
 {
     int dif = 0;
@@ -75,6 +108,7 @@ int com(char str1[], char str2[])
     }
     return dif;
 }
+
 char rev(char str1[])
 {
     int l = len(str1), i, j;
@@ -88,6 +122,7 @@ char rev(char str1[])
     tempstr[i] = '\0';
     cop(tempstr, str1);
 }
+
 void cat(char str1[], char str2[])
 {
     int l = len(str1), i, j;
@@ -97,6 +132,7 @@ void cat(char str1[], char str2[])
     }
     str1[j] = '\0';
 }
+
 void up(char str[], char strn[])
 {
     int i;
@@ -123,68 +159,10 @@ int comp(char str1[256], char str2[256])
     }
     return ctr;
 }
-void delrepeated_words(char str[256])
-{
-    char mat[256][256], words[256];
-    int i = 0, j = 0, k = 0, l = 0;
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        if (str[i] == ' ')
-        {
-            mat[k][j] = '\0';
-            k++;
-            j = 0;
-        }
-        else
-        {
-            mat[k][j] = str[i];
-            j++;
-        }
-    }
-    mat[k][j] = '\0';
-    j = 0;
-    for (i = 0; i < k; i++)
-    {
-        int temp = 0;
-        for (l = 1; l < k + 1; l++)
-        {
-            if (mat[l][j] == '\0' || l == i)
-            {
-                continue;
-            }
-            if (comp(mat[i], mat[l]) == 0)
-            {
-                mat[l][j] = '\0';
-                temp++;
-            }
-        }
-    }
-    j = 0;
-    for (i = 0; i < k + 1; i++)
-    {
-        if (mat[i][j] == '\0')
-            continue;
-        else
-            printf("%s ", mat[i]);
-    }
-}
 
 int main()
 {
-    // Problem 1
-    char str[100];
-    int count = 0, i;
-    printf("Enter the string:\n");
-    scanf(" %[^\n]s ", str);
-    findvowelconsonants(str);
-    string_length(str);
-    printf("\nLength of string:%d\n", string_length(str));
-    word_num(str);
-    printf("\nNumber of words in given string are: %d\n", word_num(str));
-
-    // Problem 2
     int ch;
-    int trash;
     char str1[1024];
     char str2[1024];
     char strn1[100], strn2[100];
@@ -246,10 +224,81 @@ int main()
         }
     } while (ch != 7);
 
-    // Problem 3
+    return 0;
+}
+```
+### Problem 4:
+### `Delete Repeated Words`
+```c
+#include <stdio.h>
+#include <string.h>
+
+int comp(char str1[256], char str2[256])
+{
+    int ctr = 0;
+    for (int i = 0; (str1[i] != '\0' || str2[i] != '\0'); i++)
+    {
+        if ((str1[i] > str2[i]) || (str1[i] < str2[i]))
+        {
+            ctr = 1;
+            break;
+        }
+    }
+    return ctr;
+}
+
+void delrepeated_words(char str[256])
+{
+    char mat[256][256], words[256];
+    int i = 0, j = 0, k = 0, l = 0;
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] == ' ')
+        {
+            mat[k][j] = '\0';
+            k++;
+            j = 0;
+        }
+        else
+        {
+            mat[k][j] = str[i];
+            j++;
+        }
+    }
+    mat[k][j] = '\0';
+    j = 0;
+    for (i = 0; i < k; i++)
+    {
+        int temp = 0;
+        for (l = 1; l < k + 1; l++)
+        {
+            if (mat[l][j] == '\0' || l == i)
+            {
+                continue;
+            }
+            if (comp(mat[i], mat[l]) == 0)
+            {
+                mat[l][j] = '\0';
+                temp++;
+            }
+        }
+    }
+    j = 0;
+    for (i = 0; i < k + 1; i++)
+    {
+        if (mat[i][j] == '\0')
+            continue;
+        else
+            printf("%s ", mat[i]);
+    }
+}
+
+int main()
+{
     char str3[256];
     printf("Enter a string: ");
     scanf(" %[^\n]", str3);
     delrepeated_words(str3);
     return 0;
 }
+```
