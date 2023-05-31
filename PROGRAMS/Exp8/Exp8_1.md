@@ -1,3 +1,5 @@
+## Code:
+```c
 #include <stdio.h>
 typedef struct family
 {
@@ -64,3 +66,4 @@ int main()
     }
     return 0;
 }
+```
