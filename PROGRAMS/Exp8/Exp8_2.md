@@ -1,3 +1,7 @@
+### Question 1:
+
+## Code:
+```c
 #include <stdio.h>
 #include <string.h>
 typedef struct air
@@ -90,3 +94,4 @@ int main()
     } while (flag == 0);
     return 0;
 }
+```
