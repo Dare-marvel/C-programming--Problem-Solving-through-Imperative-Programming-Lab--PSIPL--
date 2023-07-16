@@ -1,3 +1,10 @@
+## Explanation
+
+## Time and Space Complexity:
+### `Time Complexity`:
+
+### `Space Complexity`:
+
 ### Question 1:
 
 ## Code:
