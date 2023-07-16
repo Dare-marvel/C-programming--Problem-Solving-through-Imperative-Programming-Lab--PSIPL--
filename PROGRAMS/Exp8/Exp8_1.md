@@ -1,3 +1,10 @@
+## Explanation
+
+## Time and Space Complexity:
+### `Time Complexity`:
+
+### `Space Complexity`:
+
 ## Code:
 ```c
 #include <stdio.h>
