@@ -1,3 +1,12 @@
+## Explanation
+
+## Time and Space Complexity:
+### `Time Complexity`:
+
+### `Space Complexity`:
+
+## Code:
+```c
 #include <stdio.h>
 #include <string.h>
 typedef struct book
@@ -45,3 +54,4 @@ int main()
     i = print(filename);
     return 0;
 }
+```
