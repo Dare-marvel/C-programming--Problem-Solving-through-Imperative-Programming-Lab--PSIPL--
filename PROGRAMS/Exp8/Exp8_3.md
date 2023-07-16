@@ -1,3 +1,12 @@
+## Explanation
+
+## Time and Space Complexity:
+### `Time Complexity`:
+
+### `Space Complexity`:
+
+## Code:
+```c
 #include <stdio.h>
 #include <string.h>
 typedef struct employee
@@ -75,3 +84,4 @@ salary is to be modified: ");
     }
     return 0;
 }
+```
