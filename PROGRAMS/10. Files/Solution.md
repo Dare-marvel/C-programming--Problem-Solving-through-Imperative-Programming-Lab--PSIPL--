@@ -212,11 +212,27 @@ int main()
 
 
 ## Explanation:
+This C program reads events from one input file and dates from another input file, and counts the number of events that occur on each date. Here is the main logic of the code in detail:
+
+1. The `check` function takes the names of the two input files as arguments.
+2. The `check` function opens both input files for reading.
+3. The `check` function initializes variables to store the current date, event count, and event name.
+4. The `check` function enters a loop to read dates from the second input file using `fscanf`.
+5. For each date read from the second input file, the `check` function rewinds the first input file to start reading from its beginning and resets the event count for the current date.
+6. The `check` function enters a nested loop to read events from the first input file using `fscanf`.
+7. For each event read from the first input file, the `check` function checks if its date matches the current date.
+8. If the event date matches the current date, the `check` function increments the event count.
+9. After all events have been read from the first input file for one date, the `check` function prints the current date and event count using `printf`.
+10. The `main` function prompts the user to enter the names of the two input files using `printf` and `scanf`.
+11. The `main` function appends ".txt" to both filenames using `strcat`.
+12. The `main` function calls the `check` function with both filenames as arguments.
 
 ## Time and Space Complexity:
 ### `Time Complexity`:
+The time complexity of this code is O(nm), where n is the number of dates in the second input file and m is the number of events in the first input file, because each date requires reading all events from the first input file once.
 
 ### `Space Complexity`:
+The space complexity of this code is O(1), because it uses a constant amount of memory (i.e., memory usage does not depend on the size of either input). However, this analysis assumes that all strings (i.e., event names) have a fixed maximum length, as specified by their respective character arrays.
 
 ## Code:
 ```c
