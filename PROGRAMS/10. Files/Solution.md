@@ -99,11 +99,32 @@ int main()
 2.
 
 ## Explanation:
+This C program reads information about vehicles from an input file and allows the user to search for vehicles by their registration number. Here is the main logic of the code in detail:
+
+1. The `vehicle_t` structure is defined to represent a vehicle, with fields for the registration number, name, and address of the vehicle.
+2. The `print` function takes the name of the input file as an argument.
+3. The `print` function opens the input file for reading and checks if it was opened successfully.
+4. If the input file was opened successfully, the `print` function closes it immediately after checking its existence.
+5. The `print` function prompts the user to enter the number of records they want to search for using `printf` and `scanf`.
+6. The `print` function enters a loop to search for 'n' records, where 'n' is the number entered by the user.
+7. For each iteration of the loop, the `print` function re-opens the input file for reading.
+8. The `print` function prompts the user to enter a registration number to search for using `printf` and `scanf`.
+9. The `print` function reads each vehicle from the input file using `fscanf`.
+10. For each vehicle read from the input file, the `print` function compares its registration number with the registration number entered by the user using `strcmp`.
+11. If a match is found, the `print` function prints the vehicle's details using `printf`, sets a flag to indicate that a match was found, and exits the inner loop.
+12. If no match is found after all vehicles have been read from the input file, the `print` function prints "Not Found" using `printf`.
+13. After searching for the current record, the `print` function resets the flag and closes the input file.
+14. After all 'n' records have been searched for, the `print` function returns.
+15. The `main` function prompts the user to enter the name of the input file using `printf` and `scanf`.
+16. The `main` function appends ".txt" to the filename using `strcat`.
+17. The `main` function calls the `print` function with the filename as an argument.
 
 ## Time and Space Complexity:
 ### `Time Complexity`:
+The time complexity of this code is O(nm), where n is the number of records that are searched for and m is the number of vehicles in the input file, because each record search requires reading all vehicles from the input file once.
 
 ### `Space Complexity`:
+The space complexity of this code is O(1), because it uses a constant amount of memory (i.e., memory usage does not depend on the size of the input). However, this analysis assumes that all strings (i.e., registration numbers, names, and addresses) have a fixed maximum length, as specified by their respective character arrays in their respective structures.
 
 ## Code:
 ```c
