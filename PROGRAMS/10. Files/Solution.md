@@ -235,20 +235,17 @@ void check(char filename1[], char filename2[])
     // Read dates from the second file and count the number of events on each date
     while (fscanf(fp2, "%d\n", &day1) != EOF)
     {
+        rewind(fp1); // Rewind the first input file to start reading from the beginning
+        count = 0; // Reset the event count for the current date
+
         // Read events from the first file and check if they match the current date
         while (fscanf(fp1, "%d, %[^\n]\n", &day2, events) != EOF)
         {
             if (day2 == day1) // If the event date matches the current date, increment the count
                 count++;
-            else // If the event date does not match the current date, print the count and reset it
-            {
-                printf("%d %d\n", day1, count);
-                count = 1;
-                break;
-            }
         }
+        printf("%d %d\n", day1, count); // Print the current date and event count
     }
-    printf("%d %d\n", day1, count); // Print the final count
 }
 
 int main()
