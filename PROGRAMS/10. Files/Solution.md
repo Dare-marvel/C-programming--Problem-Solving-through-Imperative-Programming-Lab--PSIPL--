@@ -4,11 +4,29 @@
 
 
 ## Explanation:
+This C program reads information about books from an input file and writes the books to separate output files based on their type. Here is the main logic of the code in detail:
+
+1. The `book_t` structure is defined to represent a book, with fields for the type, name, and author of the book.
+2. The `print` function takes the name of the input file as an argument.
+3. The `print` function opens the input file for reading and checks if it was opened successfully.
+4. If the input file was opened successfully, the `print` function creates a `book_t` variable to store the data read from the file.
+5. The `print` function opens two output files, one for paperbacks and one for hardbacks.
+6. The `print` function reads each book from the input file using `fscanf`.
+7. For each book read from the input file, the `print` function checks its type and writes it to the appropriate output file(s) using `fprintf`.
+8. If the book is of type 'b', it is written to both output files.
+9. If the book is of type 'p', it is written to the paperbacks file.
+10. If the book is of type 'h', it is written to the hardbacks file.
+11. After all books have been read from the input file and written to the output files, the `print` function closes all open files.
+12. The `main` function prompts the user for the name of the input file using `printf` and `scanf`.
+13. The `main` function appends ".txt" to the filename using `strcat`.
+14. The `main` function calls the `print` function with the filename as an argument.
 
 ## Time and Space Complexity:
 ### `Time Complexity`:
+The time complexity of this code is O(n), where n is the number of books in the input file, because each book is read from the input file and written to one or both output files once.
 
 ### `Space Complexity`:
+The space complexity of this code is O(1), because it uses a constant amount of memory (i.e., memory usage does not depend on the size of the input). However, this analysis assumes that all strings (i.e., book names and authors) have a fixed maximum length, as specified by the size of their respective character arrays in the `book_t` structure.
 
 ## Code:
 ```c
